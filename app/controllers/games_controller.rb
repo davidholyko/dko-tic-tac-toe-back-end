@@ -92,6 +92,11 @@ class GamesController < OpenReadController
     render json: base_query.find(params[:id])
   end
 
+  def show_all
+    @all = Game.all
+    render json: @all
+  end
+
   def create
     game = Game.new(player_x: current_user)
     save game, :created

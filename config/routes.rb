@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :games, except: %i[new edit destroy]
   # this is the streaming interface
   get '/games/:id/watch' => 'games#watch'
+  get '/all' => 'games#show_all'
 end
