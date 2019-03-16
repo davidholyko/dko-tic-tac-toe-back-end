@@ -4,7 +4,7 @@
 class GamesController < OpenReadController
   include ActionController::Live
 
-  skip_before_action :authenticate, only: :watch, :show_all
+  skip_before_action :authenticate, only: :watch
   before_action :query_string_authenticate, only: :watch
 
   private
