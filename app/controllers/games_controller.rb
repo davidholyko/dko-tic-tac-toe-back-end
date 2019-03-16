@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # class for Games Controller
-class GamesController < ProtectedController
+class GamesController < OpenReadController
   include ActionController::Live
 
   skip_before_action :authenticate, only: :watch

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # class for Users Controller
-class UsersController < ProtectedController
+class UsersController < OpenReadController
   skip_before_action :authenticate, only: %i[signup signin]
 
   # POST '/sign-up'
@@ -23,6 +23,12 @@ class UsersController < ProtectedController
     else
       head :unauthorized
     end
+  end
+
+  # GET '/users'
+  def show
+    @users = User.all
+    render json: @users
   end
 
   # DELETE '/sign-out'
